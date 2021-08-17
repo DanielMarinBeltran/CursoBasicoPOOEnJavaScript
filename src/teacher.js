@@ -4,7 +4,7 @@ export default class Teacher{
         name,
         speciality,
     }){
-        this.od = id;
+        this.id = id;
         this.name = name;
         this.speciality = speciality;
     }

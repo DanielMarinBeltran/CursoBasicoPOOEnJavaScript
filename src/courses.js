@@ -6,8 +6,20 @@ export default class Course {
         teacher,
     }){
         this.id = id;
-        this.name = name;
+        this._name = name;
         this.classes = classes;
         this.teacher = teacher;
+    }
+
+    get name(){
+        return this._name;
+    }
+
+    set name(newname){
+        if(newname === "Bad names"){
+            console.error("I dont think so....");
+        }else{
+            this._name = newname;
+        }
     }
 };
