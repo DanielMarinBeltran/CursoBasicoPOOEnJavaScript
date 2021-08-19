@@ -3,6 +3,8 @@ import Course from'./courses.js'
 import Lesson from'./lessons.js'
 import LearningPath from'./learningPaths.js'
 import Student from'./students.js'
+import FreeStudent from './students.js'
+
 
 // Teachers ------------------------
 
@@ -41,6 +43,7 @@ const cursoProgBasica = new Course({
     name: "Curso Gratis de Programación Básica",
     classes: [lesson1PB,],
     teacher: FreddyVega,
+    isFree: true,
 });
 console.log(cursoProgBasica);
 
@@ -48,7 +51,9 @@ const cursoIntroMarketingDigital = new Course ({
     id: 2,
     name: "Curso de introducción al Marketing Digital",
     classes:[lesson1DM],
-    teacher: JuanDC
+    teacher: JuanDC,
+    isFree: false,
+    lang: "english",
 });
 console.log(cursoIntroMarketingDigital);
 
@@ -71,7 +76,7 @@ const escuelaDesarrolloWeb = new LearningPath({
   
   // Estudiantes ---------------------
 
-  const miguel = new Student({
+  const miguel = new FreeStudent({
     id: 1,
     name: 'Miguel',
     email: 'miguel@gmail.com',
@@ -81,3 +86,33 @@ const escuelaDesarrolloWeb = new LearningPath({
     learningPaths: [escuelaDesarrolloWeb]
   });
   console.log(miguel);
+
+
+  // ----------------- CLASE DE ECMAScript6 ------------------- // 
+
+function videoPlay(id){
+    const urlSecreta = "https://platzisecreto.com" + id;
+    console.log("Se esta reproduciendo desde la url " + urlSecreta);
+}
+function videoStop(id){
+    const urlSecreta = "https://platzisecreto.com" + id;
+    console.log("Pausamos la url " + urlSecreta);
+}
+
+
+ export class PlatziClass {
+    constructor ({
+        name,
+        videoID,
+    }){
+        this.name = name;
+        this.videoID = videoID
+    }
+
+    reproducir(){
+        videoPlay(this.videoID);
+    }
+    pausar(){
+        videoStop(this.videoID);
+    }
+}
